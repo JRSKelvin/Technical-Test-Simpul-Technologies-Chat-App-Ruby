@@ -22,7 +22,14 @@ $(function () {
         room: room_id,
       },
       {
+        connected() {
+          console.log("Connected to the channel:", this);
+        },
+        disconnected() {
+          console.log("Disconnected");
+        },
         received: function (data) {
+          console.log("Received some data:", data);
           var content = messageTemplate.children().clone(true, true);
           content
             .find('[data-role="user-avatar"]')
